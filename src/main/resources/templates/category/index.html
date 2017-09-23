@@ -10,8 +10,8 @@
 
 <p th:unless="${categories} and ${categories.size()}">No categories available.</p>
 
-<ul th:each="category : ${categories}" class="list-unstyled">
-    <li th:text="${category.name}"></li>
+<ul class="list-unstyled">
+    <li th:each="category : ${categories}" th:text="${category.name}"></li>
 </ul>
 
 <a href="/category/add">Add a Category</a>

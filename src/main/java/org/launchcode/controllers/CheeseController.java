@@ -1,6 +1,5 @@
 package org.launchcode.controllers;
 
-import antlr.ASTNULLType;
 import org.launchcode.models.Category;
 import org.launchcode.models.Cheese;
 import org.launchcode.models.data.CategoryDao;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
-import java.util.Locale;
 
 /**
  * Created by LaunchCode
@@ -57,10 +55,12 @@ public class CheeseController {
             return "cheese/add";
         }
 
-        cheeseDao.save(newCheese);
-
         Category cat = categoryDao.findOne(categoryId);
         newCheese.setCategory(cat);
+
+        cheeseDao.save(newCheese);
+
+
 
         return "redirect:";
     }
